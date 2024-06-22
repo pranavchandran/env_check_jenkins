@@ -10,11 +10,6 @@ if some_key is None:
     exit(1)
 
 # Write the key to a text file
-file_path = os.getcwd()
-with open(file_path, 'w') as file:
-    file.write(some_key)
 
-# Commit and push the changes
-subprocess.run(['git', 'add', file_path])
-subprocess.run(['git', 'commit', '-m', 'Update key'])
-subprocess.run(['git', 'push'])
+with open('key.txt', 'w') as file:
+    file.write(some_key)
