@@ -10,4 +10,5 @@ if some_key is None:
 
 # Write the key to a text file
 with open('key.txt', 'w') as file:
+    print('some key is printing')
     file.write(some_key)
