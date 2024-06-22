@@ -1,4 +1,5 @@
 import os
+import subprocess
 
 # Get AWS credentials from environment variables
 some_key = os.getenv('some_key')
@@ -9,6 +10,11 @@ if some_key is None:
     exit(1)
 
 # Write the key to a text file
-with open('key.txt', 'w') as file:
-    print('some key is printing')
+file_path = os.getcwd()
+with open(file_path, 'w') as file:
     file.write(some_key)
+
+# Commit and push the changes
+subprocess.run(['git', 'add', file_path])
+subprocess.run(['git', 'commit', '-m', 'Update key'])
+subprocess.run(['git', 'push'])
